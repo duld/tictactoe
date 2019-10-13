@@ -5,7 +5,8 @@
 <!-- make the game board -->
 <main class="row">
   <app-square
-    class="col-md-4"
     *ngFor="let square of gameSquares; let i = index"
+    class="col-md-4"
+    [id]="i"
   ></app-square>
 </main>
