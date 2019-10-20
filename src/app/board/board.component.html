@@ -1,12 +1,24 @@
-<p>
-  board works!
-</p>
+<div class="row">
+  <button
+  class="btn btn-outline-success"
+  (click)="newGame()"
+  >
+  New Game</button>
+<button
+  class="btn btn-info"
+  (click)="test()"
+  >test</button>
+<h3
+  *ngIf="winner"
+>{{ winner }} Won the match!</h3>
+</div>
 
 <!-- make the game board -->
 <main class="row">
   <app-square
     *ngFor="let square of gameSquares; let i = index"
     class="col-md-4"
-    [id]="i"
+    (click)="makeMove(i)"
+    [value]="square"
   ></app-square>
 </main>
