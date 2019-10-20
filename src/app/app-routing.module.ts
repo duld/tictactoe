@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { BoardComponent } from './board/board.component';
 
 const routes: Routes = [
-  { path: '', component: BoardComponent, pathMatch: 'full'}
+  { path: '', redirectTo: 'game', pathMatch: 'full'},
+  { path: 'game', component: BoardComponent}
 ];
 
 @NgModule({
