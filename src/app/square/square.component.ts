@@ -4,8 +4,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
   selector: 'app-square',
   template: `
   <button
-    class="btn btn-primary"
-    (click)="handleClick()">
+    [ngClass]="calculateClasses()">
     {{ value }}
   </button>
   `,
@@ -15,15 +14,28 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 export class SquareComponent implements OnInit {
 
   @Input() id: number;
-  value: string;
+  @Input() value: 'X' | 'O';
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  handleClick() {
-    this.value = 'clicked!';
-    console.log(this.id);
+  calculateClasses() {
+    let classConfig = {};
+
+    switch (this.value) {
+      case 'X':
+        classConfig = { btn: true, 'btn-danger': true};
+        break;
+      case 'O':
+        classConfig = { btn: true, 'btn-primary': true};
+        break;
+      default:
+        classConfig = { btn: true, 'btn-secondary': true};
+        break;
+    }
+
+    return classConfig;
   }
 }
