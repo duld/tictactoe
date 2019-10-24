@@ -1,23 +1,29 @@
-<div class="row">
-  <button
-  class="btn btn-outline-success"
-  (click)="newGame()"
-  >
-  New Game</button>
-<button
+<div id="controls" class="row justify-content-between">
+  <div class="col-4">
+    <button
+    class="btn btn-outline-success"
+    (click)="newGame()"
+    >
+    New Game</button>
+  </div>
+
+<!-- <button
   class="btn btn-info"
   (click)="test()"
-  >test</button>
-<h3
-  *ngIf="winner"
->{{ winner }} Won the match!</h3>
+  >test</button> -->
+  <div class="col-4">
+    <h3
+    *ngIf="winner"
+    >{{ winner }} Won the match!</h3>
+  </div>
+
 </div>
 
 <!-- make the game board -->
 <main class="row">
   <app-square
     *ngFor="let square of gameSquares; let i = index"
-    class="col-md-4"
+    class="col-md-4 col-4"
     (click)="makeMove(i)"
     [value]="square"
   ></app-square>

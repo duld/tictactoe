@@ -2,3 +2,11 @@ button {
   margin-left: 15px;
   /* padding-left: 15px; */
 }
+
+#controls {
+  margin-top: 30px;
+}
+
+h3 {
+  margin-bottom: 0;
+}
